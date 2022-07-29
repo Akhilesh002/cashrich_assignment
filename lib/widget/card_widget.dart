@@ -14,7 +14,7 @@ class CardWidget extends StatelessWidget {
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 4),
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.black,
@@ -49,7 +49,7 @@ class CardWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 24,
+            height: 16,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -165,13 +165,13 @@ class CardWidget extends StatelessWidget {
       return const Icon(
         Icons.arrow_upward_rounded,
         size: 20,
-        color: Colors.grey,
+        color: Colors.green,
       );
     } else if ((item?.quote?.uSD?.percentChange24h ?? 0) < 0) {
       return const Icon(
         Icons.arrow_downward_rounded,
         size: 20,
-        color: Colors.grey,
+        color: Colors.red,
       );
     } else {
       return const SizedBox();
@@ -179,10 +179,17 @@ class CardWidget extends StatelessWidget {
   }
 
   Widget getSymbol() => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 2),
         decoration: BoxDecoration(
           color: Colors.grey,
           borderRadius: BorderRadius.circular(4),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(0.0, 0.7),
+              blurRadius: 6.0,
+            ),
+          ],
         ),
         child: Text(
           item?.symbol ?? "",
